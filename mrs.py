@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter.filedialog import askopenfilename
+import glob
 
 
 class MRS:
@@ -17,8 +18,8 @@ class MRS:
 
         self.userPanelFrame = ttk.Frame(master)
         ttk.Label(self.userPanelFrame, text="Open file:").grid(row=0, column=0)
-        self.filepath = StringVar()
-        self.filenameEntry = ttk.Entry(self.userPanelFrame, textvariable=self.filepath)
+        self.filename = StringVar()
+        self.filenameEntry = ttk.Entry(self.userPanelFrame, textvariable=self.filename, width=50)
         self.filenameEntry.grid(row=0, column=1)
         self.fileUpdateButton = ttk.Button(self.userPanelFrame, text="...", command=self.openfile)
         self.fileUpdateButton.grid(row=0, column=2)
@@ -27,7 +28,7 @@ class MRS:
     def openfile(self):
 
         file = askopenfilename()
-        self.filepath.set(file)
+        self.filename.set(file)
 
 
 def main():
